@@ -41,14 +41,11 @@ const roles = new Set([
 
 const TaskPriorities = new Set(["Low", "High", "Top"]);
 
-const privateFields = new Set([""]);
-
 const obfuscatedFields = new Set(["creditCard"]);
 
 export {
   obfuscatedFields,
   peoples,
-  privateFields,
   TaskPriorities,
   roles,
   whoAmI,

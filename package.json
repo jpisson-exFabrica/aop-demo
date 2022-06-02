@@ -1,6 +1,7 @@
 {
   "name": "aop-app",
-  "version": "0.1.0",
+  "version": "1.0.0",
+  "author": "exFabrica <research@exfabrica.io>",
   "license": {
     "type": "CC BY-NC-SA",
     "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"

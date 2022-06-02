@@ -1,4 +1,4 @@
-import { privateFields, obfuscatedFields } from "../mock/datas";
+import { obfuscatedFields } from "../mock/datas";
 import { v4 as uuidv4 } from "uuid";
 import QuotaService from "../services/QuotaService";
 import RbacService from "../services/RbacService";

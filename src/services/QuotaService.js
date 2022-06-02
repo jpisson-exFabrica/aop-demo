@@ -1,4 +1,3 @@
-import features from "../features.json";
 import { add, isBefore, isAfter, formatDistanceToNow } from "date-fns";
 import FeatureService from "./FeatureService";
 
