@@ -1,0 +1,149 @@
+[
+  {
+    "feature": "manage",
+    "isActive": true,
+    "actions": [
+      {
+        "action": "add",
+        "perms": "Eta",
+        "quotas": [
+          {
+            "hit": 4,
+            "duration": {
+              "days": 0,
+              "hours": 0,
+              "minutes": 1,
+              "seconds": 0
+            }
+          },
+          {
+            "hit": 20,
+            "duration": {
+              "days": 0,
+              "hours": 1,
+              "minutes": 0,
+              "seconds": 0
+            }
+          }
+        ]
+      },
+      {
+        "action": "delete",
+        "perms": "Zeta",
+        "quotas": [
+          {
+            "hit": 20,
+            "duration": {
+              "days": 0,
+              "hours": 0,
+              "minutes": 5,
+              "seconds": 0
+            }
+          },
+          {
+            "hit": 80,
+            "duration": {
+              "days": 0,
+              "hours": 1,
+              "minutes": 0,
+              "seconds": 0
+            }
+          }
+        ]
+      },
+      {
+        "action": "clear",
+        "perms": "Phi",
+        "quotas": [
+          {
+            "hit": 3,
+            "duration": {
+              "days": 0,
+              "hours": 1,
+              "minutes": 0,
+              "seconds": 0
+            }
+          },
+          {
+            "hit": 42,
+            "duration": {
+              "days": 1,
+              "hours": 0,
+              "minutes": 0,
+              "seconds": 0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "feature": "interact",
+    "isActive": true,
+    "actions": [
+      {
+        "action": "play",
+        "perms": "Iota",
+        "quotas": []
+      },
+      {
+        "action": "stop",
+        "perms": "Gamma",
+        "quotas": []
+      },
+      {
+        "action": "eject",
+        "perms": "Tau",
+        "quotas": [
+          {
+            "hit": 20,
+            "duration": {
+              "days": 0,
+              "hours": 0,
+              "minutes": 5,
+              "seconds": 0
+            }
+          },
+          {
+            "hit": 120,
+            "duration": {
+              "days": 0,
+              "hours": 1,
+              "minutes": 0,
+              "seconds": 0
+            }
+          }
+        ]
+      },
+      {
+        "action": "addTime",
+        "perms": "Sigma",
+        "quotas": [
+          {
+            "hit": 2,
+            "duration": {
+              "days": 0,
+              "hours": 0,
+              "minutes": 5,
+              "seconds": 0
+            }
+          },
+          {
+            "hit": 10,
+            "duration": {
+              "days": 0,
+              "hours": 1,
+              "minutes": 0,
+              "seconds": 0
+            }
+          }
+        ]
+      },
+      {
+        "action": "assignToOther",
+        "perms": "Theta",
+        "quotas": []
+      }
+    ]
+  }
+]

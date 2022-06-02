@@ -1,0 +1,18 @@
+[
+    {
+      "role": "Reader",
+      "perms": []
+    },
+    {
+      "role": "Contributor",
+      "perms": ["Eta", "Zeta", "Gamma", "Iota", "Gamma", "Tau", "Sigma"]
+    },
+    {
+      "role": "Owner",
+      "perms": ["Eta", "Zeta", "Gamma", "Iota", "Gamma", "Tau", "Sigma", "Phi"]
+    },
+    {
+      "role": "Administrator",
+      "perms": ["Eta", "Zeta", "Gamma", "Iota", "Gamma", "Tau", "Sigma", "Phi", "Theta"]
+    }
+  ]
