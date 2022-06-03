@@ -32,10 +32,11 @@ Aspect oriented programming base on Proxies and Decorators
 
 Aspect (Proxies + Decorators) are describes into `src/helpers/AOP.js`
 
-Proxies are disabled by default, can be toggle in `src/App.vue`, line 9 & 10. (Logging and Profiling "aspect")
+Proxies are disabled by default, can be toggle in `src/App.vue`, line 9 & 10; Because it leads to lots of console logs. (Logging and Profiling "aspect")
 Proxies are explain in the 2nd Medium paper.
 
 Decorators are used in `src/services/TaskManager.js`, which is the main business class to run this App.
+Decorators are explain in the 3rd Medium paper.
 
 ## Room for improvement
 

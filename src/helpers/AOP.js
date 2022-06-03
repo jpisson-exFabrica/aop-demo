@@ -81,7 +81,7 @@ const quotaHandlerForFeature = {
   },
 };
 
-//Proxy based RBAC - On permission Zeta
+//Proxy based RBAC - On permission Theta
 const rbacThetaHandler = {
   get(target, prop, receiver) {
     let rbacManager = getIntance();
@@ -129,7 +129,7 @@ const quota = function (featureName) {
   };
 };
 
-//Decorator based RBAC - On permission Zeta
+//Decorator based RBAC - On ANY permission
 const can = function (permission) {
   return function (target, context) {
     //Initializer
