@@ -34,7 +34,7 @@ export default {
             return Array.from(peoples).find(people => people.id === this.isAssignTo).icon;
         },
         assignablePeoples () {
-            const canAssign = rbacService.hasPerms('Theta');
+            const canAssign = rbacService.hasPerms('interact.assignToOther');
             return Array.from(peoples).map(people => { 
                 if(people.id === "Myself") {
                     return {...people, assignable: true}

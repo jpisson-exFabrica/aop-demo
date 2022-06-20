@@ -54,7 +54,7 @@ export default {
             return this.existingTaskIds.has(this.id)
         },
         assignablePeoples () {
-            const canAssign = rbacService.hasPerms('Theta');
+            const canAssign = rbacService.hasPerms('interact.assignToOther');
             return Array.from(peoples).map(people => { 
                 if(people.id === "Myself") {
                     return {...people, assignable: true}

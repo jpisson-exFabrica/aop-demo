@@ -81,11 +81,11 @@ const quotaHandlerForFeature = {
   },
 };
 
-//Proxy based RBAC - On permission Theta
+//Proxy based RBAC - On permission interact.assignToOther
 const rbacThetaHandler = {
   get(target, prop, receiver) {
     let rbacManager = getIntance();
-    if (!rbacManager.hasPerms('Theta')) {
+    if (!rbacManager.hasPerms('interact.assignToOther')) {
       throw new Error("No way ! Missing permission Theta");
     } else {
       return Reflect.get(...arguments);
@@ -93,7 +93,7 @@ const rbacThetaHandler = {
   },
   set(target, prop, value, receiver) {
    let rbacManager = getIntance();
-    if (!rbacManager.hasPerms('Theta')) {
+    if (!rbacManager.hasPerms('interact.assignToOther')) {
       throw new Error("No way ! Missing permission Theta");
     } else {
       return Reflect.set(...arguments);

@@ -1,4 +1,4 @@
-import rolePerms from "../perms.json"
+import rolePerms from "../permissions.json"
 import features from "../features.json"
 import { whoAmI } from "../mock/datas"
 

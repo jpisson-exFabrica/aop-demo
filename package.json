@@ -2,10 +2,7 @@
   "name": "aop-app",
   "version": "1.0.0",
   "author": "exFabrica <research@exfabrica.io>",
-  "license": {
-    "type": "CC BY-NC-SA",
-    "url": "https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode"
-  },
+  "license": "CC-BY-NC-SA-4.0",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

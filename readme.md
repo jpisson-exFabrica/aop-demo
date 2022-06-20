@@ -14,15 +14,15 @@ This is a TODO App with time boxed tasks, as a demo of a paper on Aspect Oriente
 
 ### Modify configuration
 
-Based mainly on two files `src/features.json` and `src/perms.json`
+Based mainly on two files `src/features.json` and `src/permissions.json`
 - "features.json" : contains features configuration; feature flipping state, associated actions with perms and quota limitations;
-- "perms.json" : describe role/perms associations.
+- "permissions.json" : describe role/perms associations.
 
 > By default you have a "Contributor" role.
 
-If you want to assign a task to others for exemple, you can add perm "Theta" to the perms list of "Contributor" ...
+If you want to assign a task to others for exemple, you can add perm "interact.assignToOther" to the perms list of "Contributor" ...
 
-If you want to clear all your task list, you can use the "nuke button" if you have perms "Phi".
+If you want to clear all your task list, you can use the "nuke button" if you have perms "manage.clear".
 
 Explore all actions / perms by reading `src\features.json`
 

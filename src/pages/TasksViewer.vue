@@ -104,7 +104,7 @@ export default {
                 </Task>
             </li>
         </ol>
-        <button @click="handleNuke" class="nuke-tasks" title="Nuke my tasks">☢️</button>
+        <button @click="handleNuke" class="nuke-tasks" title="Clear my tasks">☢️</button>
     </div>
     <div v-else class="no-task">
         <h2>✨Great work today !✨</h2>

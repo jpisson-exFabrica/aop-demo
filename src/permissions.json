@@ -1,0 +1,18 @@
+[
+    {
+      "role": "Reader",
+      "perms": []
+    },
+    {
+      "role": "Contributor",
+      "perms": ["manage.add", "manage.delete", "interact.stop", "interact.play", "interact.stop", "interact.eject", "interact.addTime"]
+    },
+    {
+      "role": "Owner",
+      "perms": ["manage.add", "manage.delete", "interact.stop", "interact.play", "interact.stop", "interact.eject", "interact.addTime", "manage.clear"]
+    },
+    {
+      "role": "Administrator",
+      "perms": ["manage.add", "manage.delete", "interact.stop", "interact.play", "interact.stop", "interact.eject", "interact.addTime", "manage.clear", "interact.assignToOther"]
+    }
+  ]

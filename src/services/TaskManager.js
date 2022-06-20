@@ -56,7 +56,7 @@ class TaskManager {
   }
 
   //Methods
-  @can("Eta")
+  @can("manage.add")
   @quota("manage.add")
   add(task) {
     //guard clauses
@@ -78,7 +78,7 @@ class TaskManager {
     return localStorage.getItem(storageKey);
   }
 
-  @can("Zeta")
+  @can("manage.delete")
   @quota("manage.delete")
   async delete(taskId) {
     if(this.runningId === taskId) {
@@ -93,14 +93,14 @@ class TaskManager {
     );
   }
 
-  @can("Phi")
+  @can("manage.clear")
   @quota("manage.clear")
   async clear() {
     this.tasks.clear();
     localStorage.setItem(storageKey, JSON.stringify([]));
   }
 
-  @can("Iota")
+  @can("interact.play")
   @quota("interact.play")
   start(taskId) {
     this.runningId = taskId
@@ -119,7 +119,7 @@ class TaskManager {
     }, 400)//1k = 1sec, 60k = 1min
   }
 
-  @can("Gamma")
+  @can("interact.stop")
   @quota("interact.stop")
   stop(taskId) {
     if(this.runningId === taskId) {
@@ -129,7 +129,7 @@ class TaskManager {
     }
   }
 
-  @can("Tau")
+  @can("interact.eject")
   @quota("interact.addTime")
   addTime(taskId, delay) {
     let task = this.tasks.get(taskId);
@@ -137,7 +137,7 @@ class TaskManager {
     this.tasks.set(taskId, task);
   }
 
-  @can("Theta")
+  @can("interact.assignToOther")
   assignTo(taskId, userId) {
     if(userId === "God"){
       throw new Error("You really think you can assign something to the big guy ?");
