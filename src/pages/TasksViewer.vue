@@ -1,11 +1,12 @@
 <script>
 import Task from "../components/Task.vue";
-import currentTask from "../components/currentTask.vue";
-
+import CurrentTask from "../components/CurrentTask.vue";
+import TaskCardHeader from "../components/TaskCardHeader.vue";
 export default {
     components: {
         Task,
-        currentTask,
+        CurrentTask,
+        TaskCardHeader,
     },
     props: {
         taskManager: Object,
@@ -71,13 +72,35 @@ export default {
     <div v-if="orderedTaskList.length > 0" class="task-list">
         <ol>
             <li v-for="(task, index) in orderedTaskList" :key="task.id">
-                <currentTask v-if="index === 0" :key="`current${index}`" :id="task.id" :description="task.description" :descriptionHTML="task.descriptionHTML ?? null"
-                    :duration="task.duration" :assignTo="task.assignTo" :priority="task.priority" :runningId="runningId"
-                    :handleDelete="handleDelete" :handleStart="handleStart" :handleStop="handleStop" :handleAddTime="handleAddTime" :handleReassign="handleReassign">
-                </currentTask>
-                <Task v-else :id="task.id" :key="`next${index}`" :description="task.description" :duration="task.duration"
-                    :assignTo="task.assignTo" :priority="task.priority"
-                    :handleDelete="handleDelete">
+                <CurrentTask v-if="index === 0"
+                    :key="`current${index}`"
+                    :id="task.id"
+                    :duration="task.duration"
+                    :priority="task.priority"
+                    :runningId="runningId"
+                    :handleDelete="handleDelete"
+                    :handleStart="handleStart"
+                    :handleStop="handleStop"
+                    :handleAddTime="handleAddTime"
+                    :handleReassign="handleReassign">
+                    <TaskCardHeader :id="task.id"
+                        :description="task.description"
+                        :descriptionHTML="task.descriptionHTML ?? null"
+                        :duration="task.duration"
+                        :assignTo="task.assignTo"
+                        :priority="task.priority"
+                        :handleDelete="handleDelete">
+                    </TaskCardHeader>
+                </CurrentTask>
+                <Task v-else>
+                    <TaskCardHeader  :key="`next${index}`" :id="task.id"
+                        :description="task.description"
+                        :descriptionHTML="task.descriptionHTML ?? null"
+                        :duration="task.duration"
+                        :assignTo="task.assignTo"
+                        :priority="task.priority"
+                        :handleDelete="handleDelete">
+                    </TaskCardHeader>
                 </Task>
             </li>
         </ol>
@@ -170,7 +193,9 @@ li {
     }
 
     .task-principal {
-        margin: 1rem 0rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .description {
@@ -189,7 +214,6 @@ li {
         width: 5rem;
         display: flex;
         justify-content: space-between;
-        margin: 0.25rem 0;
         padding-left: 0.85rem;
     }
 

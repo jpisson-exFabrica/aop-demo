@@ -1,22 +1,8 @@
 <script>
-import { peoples } from "../mock/datas"
-import { formatDistanceToNow, addMinutes } from 'date-fns'
-import RbacService from "../services/RbacService"
-
-const rbacService = RbacService.getInstance();
-
 export default {
     props: {
         id: String,
-        description: String,
-        descriptionHTML: {
-            type: String,
-            required: false,
-            default: null,
-        },
         duration: Number,
-        assignTo: String,
-        category: String,
         priority: String,
         runningId: String,
         handleDelete: Function,
@@ -28,17 +14,9 @@ export default {
     data() {
         return {
             isRunning: false,
-            localAssign: null,
         }
     },
     computed: {
-        formatTimeLeft() {
-            return formatDistanceToNow(addMinutes(new Date(), this.duration)
-            )
-        },
-        iconAssignTo() {
-            return Array.from(peoples).find(people => people.id === this.isAssignTo).icon;
-        },
         cardColorBorder() {
             let returnValue = ''
             if (this.duration === 0) {
@@ -85,36 +63,6 @@ export default {
             }
             return returnValue;
         },
-        assignablePeoples () {
-            const canAssign = rbacService.hasPerms('Theta');
-            return Array.from(peoples).map(people => { 
-                if(people.id === "Myself") {
-                    return {...people, assignable: true}
-                }
-                else {
-                    return {...people, assignable: canAssign}
-                }
-            })
-        },
-        isAssignTo: {
-            get() {
-                return this.localAssign ?? this.assignTo
-            },
-            async set(personId) {
-                try {
-                    const result = await this.handleReassign(this.id, personId);
-                    if(!result) {
-                        let selector = document.getElementById("currentAssignTo")
-                        selector.options[0].selected = true
-                    }else {
-                        this.localAssign = personId;
-                    }
-                } catch (error) {
-                    console.error(error);
-                    
-                }
-            }
-        }
     },
     watch: {
         runningId: {
@@ -129,33 +77,19 @@ export default {
 </script>
 
 <template>
-    <div class="main-task-card">
-        <div class="task-header">
-            <span class="tag priority" title="priority">{{ priority }}</span>
-            <select id="currentAssignTo" v-model="isAssignTo">
-                <option v-for="({id, icon, assignable}, index) in assignablePeoples" :key="index" :value="id" :disabled="!assignable">
-                    {{icon}} {{id}}
-                </option>
-            </select>
-            <button @click="handleDelete(id)" title="eject task"><span class="eject">⏏️</span></button>
-        </div>
-        <div class="task-principal">
-            <strong>{{ id }}</strong> <span class="tag time">🕑 {{ formatTimeLeft }} left</span>
-        </div>
-        <div v-if="description!='' || descriptionHTML!=null" class="description">
-            <p v-if="descriptionHTML !== null" v-html="descriptionHTML"></p><p v-else>{{ description }}</p>
-        </div>
-        <div class="actions state">
-            <button @click="handleDelete(id)" title="stop task"><span>⏹️</span></button>
-            <button v-if="isRunning" @click="handleStop(id)" title="pause task"><span>⏸️</span></button>
-            <button v-else @click="handleStart(id)" title="play task"><span>▶️</span></button>
-        </div>
-        <div class="actions delay">
-            <button class="time" @click="handleAddTime(id, 5)" title="add 5 minutes to task">➕ 5min</button>
-            <button class="time" @click="handleAddTime(id, 15)" title="add 15 minutes to task">➕ 15min</button>
-            <button class="time" @click="handleAddTime(id, 60)" title="add 1 hour to task">➕ 1H</button>
-        </div>
-    </div>
+    <article class="main-task-card">
+        <slot></slot>
+        <ul class="actions state">
+            <li><button @click="handleDelete(id)" title="stop task"><span>⏹️</span></button></li>
+            <li v-if="isRunning"><button @click="handleStop(id)" title="pause task"><span>⏸️</span></button></li>
+            <li v-else><button @click="handleStart(id)" title="play task"><span>▶️</span></button></li>
+        </ul>
+        <ul class="actions delay">
+            <li><button class="time" @click="handleAddTime(id, 5)" title="add 5 minutes to task">➕ 5min</button></li>
+            <li><button class="time" @click="handleAddTime(id, 15)" title="add 15 minutes to task">➕ 15min</button></li>
+            <li><button class="time" @click="handleAddTime(id, 60)" title="add 1 hour to task">➕ 1H</button></li>
+        </ul>
+    </article>
 </template>
 
 <style lang="scss" scoped>

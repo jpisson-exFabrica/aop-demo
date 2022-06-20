@@ -13,12 +13,12 @@ export default {
 </script>
 
 <template>
-    <div class="drawer" :class="{ 'open': isOpen, 'close': !isOpen }">
+    <aside class="drawer" :class="{ 'open': isOpen, 'close': !isOpen }">
         <button class="toggle-drawer" @click="handleToggle" :title="`${isOpen ? 'close' : 'open'} form`">
             <span :class="{ 'open': isOpen, 'close': !isOpen }">✖️</span>
         </button>
         <slot :isOpen="isOpen"></slot>
-    </div>
+    </aside>
 
 </template>
 

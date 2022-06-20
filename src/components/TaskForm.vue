@@ -80,8 +80,8 @@ export default {
             <label for="description">Description</label>
             <textarea id="description" name="description" v-model="description" cols="38" rows="4"></textarea>
         </div>
-        <div class="form-item">
-            <span>Duration</span>
+        <fieldset class="form-item">
+            <legend>Duration</legend>
             <div class="form-duration">
                 <label for="duration-hours">Hours</label>
                 <input id="duration-hours" name="duration-hours" type="number" v-model="durationHours" min="0" max="8" required/>
@@ -89,7 +89,7 @@ export default {
                 <input id="duration-minutes" name="duration-minutes" type="number" v-model="durationMinutes" min="0" max="59" required />
             </div>
             
-        </div>
+        </fieldset>
         <div class="form-item">
             <label for="assignTo">AssignTo</label>
             <select id="assignTo" v-model="assignTo">
@@ -104,10 +104,10 @@ export default {
                     {{ taskPrio }}</option>
             </select>
         </div>
-        <div class="form-item actions">
-            <button type="submit">Submit</button>
-            <button type="reset">Reset</button>
-        </div>
+        <ul class="form-item actions">
+            <li><button type="submit">Submit</button></li>
+            <li><button type="reset">Reset</button></li>
+        </ul>
 
     </form>
 </template>

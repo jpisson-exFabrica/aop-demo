@@ -27,8 +27,8 @@ try {
     const firstTask = {
       id: 'First task',
       description: 'First task in the todo list',
-      descriptionHTML: `<p>Hope you'll enjoy this,
-      we are <a href="https://www.exfabrica.io/" target="_blank">exFabrica</a></p>`,
+      descriptionHTML: `<span>Hope you'll enjoy this,
+      we are <a href="https://www.exfabrica.io/" target="_blank">exFabrica</a></span>`,
       duration: 10,
       assignTo: 'Myself',
       category: 'Public',
@@ -101,9 +101,33 @@ h1 {
 
 h2 {
   margin: 0.8rem, 0.6rem;
+  padding: 0px 10px;
+  font-size: 1.20rem;
+  word-break: break-word;
 }
 
 h3 {
   margin: 0.6rem 0.4rem;
+}
+
+dl {
+  margin: 0px;
+}
+
+dd {
+    margin: 0px;
+}
+
+ul li {
+  margin: 0px;
+}
+
+fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
+}
+legend {
+  padding: 0px;
 }
 </style>
